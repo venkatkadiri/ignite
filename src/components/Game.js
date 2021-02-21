@@ -1,13 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { loadDetail } from "../actions/detailsAction";
+import { Link } from "react-router-dom";
 
 function Game(props) {
+  const dispatch = useDispatch();
+  const loadDetailHandler = () => {
+    dispatch(loadDetail(props.id));
+  };
   return (
-    <StyledGame>
-      <h3>{props.name}</h3>
-      <p>{props.released}</p>
-      <img src={props.image} alt={props.name} />
+    <StyledGame onClick={loadDetailHandler}>
+      <Link to={`/game/${props.id}`}>
+        <h3>{props.name}</h3>
+        <p>{props.released}</p>
+        <img src={props.image} alt={props.name} />
+      </Link>
     </StyledGame>
   );
 }
@@ -19,6 +28,7 @@ const StyledGame = styled(motion.div)`
     height: 40vh;
     object-fit: cover;
   }
+  cursor: pointer;
   text-align: center;
   border-radius: 1rem;
 `;
