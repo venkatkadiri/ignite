@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function Game(props) {
   const dispatch = useDispatch();
+
   const loadDetailHandler = () => {
     dispatch(loadDetail(props.id));
   };
@@ -27,10 +28,12 @@ const StyledGame = styled(motion.div)`
     width: 100%;
     height: 40vh;
     object-fit: cover;
+    display: block;
   }
   cursor: pointer;
   text-align: center;
   border-radius: 1rem;
+  overflow: hidden;
 `;
 
 export default Game;
