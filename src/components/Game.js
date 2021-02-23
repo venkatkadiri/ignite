@@ -10,6 +10,7 @@ function Game(props) {
 
   const loadDetailHandler = () => {
     dispatch(loadDetail(props.id));
+    document.body.style.overflow = "hidden";
   };
   return (
     <StyledGame onClick={loadDetailHandler}>
