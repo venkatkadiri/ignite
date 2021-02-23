@@ -1,6 +1,7 @@
 const initial_state = {
   game: { platforms: [] },
   screenshots: { results: [] },
+  isLoding: true,
 };
 
 function detailReducer(state = initial_state, action) {
@@ -10,7 +11,14 @@ function detailReducer(state = initial_state, action) {
         ...state,
         game: action.payload.game,
         screenshots: action.payload.screenshots,
+        isLoding: false,
       };
+    case "LOADING_DETAIL":
+      return {
+        ...state,
+        isLoding: true,
+      };
+
     default:
       return {
         ...state,
