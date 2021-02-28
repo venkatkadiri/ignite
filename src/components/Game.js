@@ -6,6 +6,8 @@ import { loadDetail } from "../actions/detailsAction";
 import { Link } from "react-router-dom";
 
 function Game(props) {
+  console.log(props);
+  const stringPathId = props.id.toString();
   const dispatch = useDispatch();
 
   const loadDetailHandler = () => {
@@ -13,7 +15,7 @@ function Game(props) {
     document.body.style.overflow = "hidden";
   };
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame onClick={loadDetailHandler} layoutId={stringPathId}>
       <Link to={`/game/${props.id}`}>
         <h3>{props.name}</h3>
         <p>{props.released}</p>
